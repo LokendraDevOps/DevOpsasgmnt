@@ -1,0 +1,1148 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Mangal;
+	panose-1:0 0 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Cambria\,Bold";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.Default, li.Default, div.Default
+	{mso-style-name:Default;
+	margin:0cm;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:black;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 72.0pt 49.65pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-IN link=blue vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><b><span
+style='font-size:18.0pt;line-height:107%;font-family:"Cambria\,Bold";
+color:#345A8B'>Module-6: Ansible Assignment - 1</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>Tasks To Be Performed:<br>
+1. Setup Ansible cluster with 3 nodes<br>
+2. On slave 1 install Java<br>
+3. On slave 2 install MySQL server</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>Launch 3 Instances in AWS
+and add Tags as Ansible-Master, Ansible-Slave1, ansible-slave2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=682 height=91
+id="Picture 40" src="Ansible%20Assignment_files/image001.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>Connect with all the
+three Instances</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>Install Ansible on Master
+Instance (Ansible-Master)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><a
+href="https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#id5"
+target="_blank"><span style='letter-spacing:-.2pt'>Installing Ansible on Ubuntu</span></a></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:10.5pt;
+line-height:107%;color:#242424;letter-spacing:-.25pt'>sudo apt </span><span
+style='font-size:10.5pt;line-height:107%;color:#AA0D91;letter-spacing:-.25pt'>update</span><span
+style='font-size:10.5pt;line-height:107%;color:#242424;letter-spacing:-.25pt'><br>
+sudo apt install software-properties-common<br>
+sudo </span><span style='font-size:10.5pt;line-height:107%;color:#AA0D91;
+letter-spacing:-.25pt'>add</span><span style='font-size:10.5pt;line-height:
+107%;color:#242424;letter-spacing:-.25pt'>-apt-repository </span><span
+style='font-size:10.5pt;line-height:107%;color:#007400;letter-spacing:-.25pt'>--yes
+--update ppa:ansible/ansible</span><span style='font-size:10.5pt;line-height:
+107%;color:#242424;letter-spacing:-.25pt'><br>
+sudo apt install ansible</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:10.5pt;
+line-height:107%;color:#242424;letter-spacing:-.25pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=601
+height=204 id="Picture 41" src="Ansible%20Assignment_files/image002.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>Now we need to create a
+connection b/w master and slaves1,slave2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>for the connection, we
+need to generate a keypair in master and pasting the keypair will help us to
+connect with slave1,slave2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>ssh-keygen (Ansible-M)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>key will be saved in :</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>/home/ubuntu/.ssh/id_rsa.pub</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>copy the key from the
+Ansible-M and past it in “.ssh/authorized_keys” file</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602
+height=349 id="Picture 43" src="Ansible%20Assignment_files/image003.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:12.0pt;
+line-height:107%'>Ansible-Master</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=601 height=34
+id="Picture 45" src="Ansible%20Assignment_files/image004.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:12.0pt;
+line-height:107%'>Ansible-Slave1</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602 height=40
+id="Picture 42" src="Ansible%20Assignment_files/image005.jpg"><span
+style='font-size:12.0pt;line-height:107%'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:12.0pt;
+line-height:107%'>Ansible-Slave2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602 height=45
+id="Picture 44" src="Ansible%20Assignment_files/image006.jpg"><span
+style='font-size:12.0pt;line-height:107%'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>we need to add the slave Private-IP
+into the ansible host file</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>path of the ansible host
+file: cd /etc/ansible/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=601
+height=100 id="Picture 47" src="Ansible%20Assignment_files/image007.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=199
+height=131 id="Picture 46" src="Ansible%20Assignment_files/image008.png"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>to check whether the
+connection is successful or not</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>ansible -m ping all</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602
+height=335 id="Picture 48" src="Ansible%20Assignment_files/image009.jpg"><span
+style='font-size:12.0pt;line-height:107%'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>sudo nano assign1.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>---</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>- </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>installing java</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>hosts</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>test</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>become</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>true</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>tasks</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+- </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>java</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+&nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>apt</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>name=openjdk-11-jdk
+state=latest</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>- </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>installing Mysql</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>hosts</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>prod</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>become</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>true</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>tasks</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+- </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>mysql</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+&nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>apt</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>name=mysql-server
+state=latest</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:10.5pt;
+line-height:107%;color:#CCCCCC'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=478
+height=269 id="Picture 49" src="Ansible%20Assignment_files/image010.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:10.5pt;
+line-height:107%;color:#CCCCCC'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>this file is used for
+installing Java in Salve 1 which is test as the group name and MySQL and Slave
+2 which is prod as the group name.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>ansible-playbook assign1.yml
+-- syntax-check&nbsp;(to check the syntax of the file)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602 height=83
+id="Picture 50" src="Ansible%20Assignment_files/image011.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>ansible-playbook assign1.yml
+-check (Trail run)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>ansible-playbook assign1.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602
+height=334 id="Picture 51" src="Ansible%20Assignment_files/image012.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:12.0pt;
+line-height:107%'>Check on slave1</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602 height=82
+id="Picture 52" src="Ansible%20Assignment_files/image013.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:12.0pt;
+line-height:107%'>Check on slave2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=601 height=71
+id="Picture 53" src="Ansible%20Assignment_files/image014.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:12.0pt;
+line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><span style='font-size:18.0pt;
+line-height:107%;font-family:"Cambria\,Bold";color:#345A8B'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><span style='font-size:18.0pt;
+line-height:107%;font-family:"Cambria\,Bold";color:#345A8B'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><span style='font-size:18.0pt;
+line-height:107%;font-family:"Cambria\,Bold";color:#345A8B'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><span style='font-size:18.0pt;
+line-height:107%;font-family:"Cambria\,Bold";color:#345A8B'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><b><span
+style='font-size:18.0pt;line-height:107%;font-family:"Cambria\,Bold";
+color:#345A8B'>Module-6: Ansible Assignment – 2</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;text-autospace:
+none'><span style='font-size:13.0pt;font-family:"Cambria",serif;color:#366092'>You
+have been asked to:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;text-autospace:
+none'><span style='font-family:"Arial",sans-serif;color:black'>&#9679; Create a
+script which can add text “This text has been added by custom script” to</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;text-autospace:
+none'><span style='font-family:"Arial",sans-serif;color:black'>/tmp.1.txt</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-family:"Arial",sans-serif;
+color:black'>&#9679; Run this script using Ansible on all the hosts</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>sudo nano assign2.sh (It creates
+a shell script)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>echo “This text has been
+added by custom script” &gt; /tmp/1.txt</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>bash assign2.sh ( to execute
+the script file )</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>2. Run this script using
+Ansible on all the hosts</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>sudo nano assign2.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>---</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>- </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>copy txt</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>hosts</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>all</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>become</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>true</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>tasks</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+&nbsp; - </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>script</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+&nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#569CD6'>script</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#CCCCCC'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#CE9178'>assign2.s</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#CCCCCC'>h</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=601 height=196 id="Picture 1"
+src="Ansible%20Assignment_files/image015.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>the above script is used for
+copying the files</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=586 height=266 id="Picture 54"
+src="Ansible%20Assignment_files/image016.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;color:black'>checked in Slave1</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602
+height=158 id="Picture 55" src="Ansible%20Assignment_files/image017.jpg"><span
+style='font-family:"Arial",sans-serif;color:black'><br clear=all>
+checked in Slave2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=175 id="Picture 56"
+src="Ansible%20Assignment_files/image018.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-family:"Arial",sans-serif;
+color:black'>&nbsp;</span></p>
+
+<p class=Default align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Default align=center style='text-align:center'><b><span
+style='font-size:18.0pt;color:#345A88'>Module-6: Ansible Assignment – 3</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Tasks To Be Performed:<br>
+1. Create 2 Ansible roles<br>
+2. Install Apache2 on slave1 using one role and NGINX on slave2 using the other
+role<br>
+3. Above should be implemented using different Ansible roles</span></p>
+
+<p class=MsoListParagraph style='margin-bottom:0cm;text-indent:-18.0pt;
+line-height:24.0pt;background:white'><i><span style='font-size:15.0pt;
+font-family:"Georgia",serif;color:#242424;letter-spacing:-.05pt'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Create 2 Ansible roles</span></i></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:18.0pt;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>To create ansible roles:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Go inside the directory  cd /etc/ansible/roles</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>sudo ansible-galaxy init apache2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>sudo ansible-galaxy init nginx</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=136 id="Picture 57"
+src="Ansible%20Assignment_files/image019.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>2. Install Apache2 on slave1 using one role and NGINX on slave2 using
+the other role</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>path of Ansible Apache role</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>cd /etc/ansible/roles/apache2/tasks/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>path of Ansible nginx role</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>cd /etc/ansible/roles/nginx/tasks/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>add the yml playbook files inside tasks</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>---</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>- name: apache2<br>
+apt: name=apache2 state=latest</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=104 id="Picture 58"
+src="Ansible%20Assignment_files/image020.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>sudo nano main.yml</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>---<br>
+- include_tasks:install.yml</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=601 height=124 id="Picture 63"
+src="Ansible%20Assignment_files/image021.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>---</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>- name: nginx<br>
+apt: name=nginxstate=latest</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=92 id="Picture 60"
+src="Ansible%20Assignment_files/image022.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>sudo nano main.yml</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>---<br>
+- include_tasks:install.yml</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=114 id="Picture 61"
+src="Ansible%20Assignment_files/image023.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>finally create a playbook to execute the tasks of the role</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>sudo nano assign3.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>---</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>- </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>installing apache2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>hosts</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>test</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>become</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>true</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>roles</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+- </span><span style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>apache</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>- </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>installing nginx</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>hosts</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>prod</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>become</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>true</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>roles</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+- </span><span style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>nginx</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=601 height=240 id="Picture 62"
+src="Ansible%20Assignment_files/image024.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>ansible-playbook assign3.yml (to execute the ansible playbook)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=395 id="Picture 64"
+src="Ansible%20Assignment_files/image025.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Now we will be checking the webservers</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=601 height=425 id="Picture 65"
+src="Ansible%20Assignment_files/image026.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=225 id="Picture 66"
+src="Ansible%20Assignment_files/image027.jpg"></p>
+
+<p class=Default>&nbsp;</p>
+
+<p class=Default align=center style='text-align:center'><b><span
+style='font-size:18.0pt;color:#345A88'>Module-6: Ansible Assignment – 4</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><b><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Tasks To Be Performed:</span></b><span style='font-size:15.0pt;
+font-family:"Georgia",serif;color:#242424;letter-spacing:-.05pt'><br>
+1. Use the previous deployment of the Ansible cluster<br>
+2. Configure the files folder in the role with index.html which should be
+replaced with the original index.html<br>
+All of the above should only happen on the slave which has NGINX installed
+using the role.</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0cm;text-indent:-18.0pt;
+line-height:24.0pt;background:white'><i><span style='font-size:15.0pt;
+font-family:"Georgia",serif;color:#242424;letter-spacing:-.05pt'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Use the previous deployment of the Ansible cluster<br>
+2. Configure the files folder in the role with index.html which should be
+replaced with the original index.html</span></i></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0cm;line-height:24.0pt;
+background:white'><i><span style='font-size:15.0pt;font-family:"Georgia",serif;
+color:#242424;letter-spacing:-.05pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>go to cd /etc/ansible/roles/apache2/files</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>create an index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&lt;h1&gt;Hi $Hello World&lt;/h1&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='color:black'><img border=0 width=602 height=56 id="Picture 67"
+src="Ansible%20Assignment_files/image028.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>go to cd /etc/ansible/roles/apache2/tasks</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>and create a new file which is copy.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>---</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>- </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>name</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>copy index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:14.25pt;background:
+#1F1F1F'><span style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>&nbsp;
+</span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>copy</span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CCCCCC'>: </span><span
+style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>src=/etc/ansible/roles/apache2/files/index.html
+dest=/var/www/html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=79 id="Picture 68"
+src="Ansible%20Assignment_files/image029.jpg"><span style='font-size:12.0pt;
+font-family:"Times New Roman",serif'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>include the copy.yml file in the main.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=112 id="Picture 69"
+src="Ansible%20Assignment_files/image030.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>go to cd /etc/ansible/roles/nginx/files</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>create an index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&lt;h1&gt;Hi $hello world2&lt;/h1&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='color:black'><img border=0 width=601 height=70 id="Picture 70"
+src="Ansible%20Assignment_files/image031.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>go to cd /etc/ansible/roles/nginx/tasks</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>and create a new file which is copy.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=86 id="Picture 71"
+src="Ansible%20Assignment_files/image032.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>include the copy.yml file in the main.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=93 id="Picture 72"
+src="Ansible%20Assignment_files/image033.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Create playbook for assign4</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>sudo nano assign4.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='color:black'><img border=0 width=601 height=167 id="Picture 73"
+src="Ansible%20Assignment_files/image034.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>run the play book</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:24.0pt;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>ansible-playbook assign4.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=602 height=322 id="Picture 74"
+src="Ansible%20Assignment_files/image035.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>Apache server</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=604 height=226 id="Picture 75"
+src="Ansible%20Assignment_files/image036.jpg"></p>
+
+<p class=Default><span style='font-family:"Times New Roman",serif;color:windowtext'>Nginx
+server</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><img border=0
+width=604 height=206 id="Picture 77"
+src="Ansible%20Assignment_files/image037.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=Default><span style='font-size:18.0pt'>&nbsp;</span></p>
+
+<p class=Default><span style='font-size:18.0pt'>&nbsp;</span></p>
+
+<p class=Default><span style='font-size:18.0pt'>&nbsp;</span></p>
+
+<p class=Default><span style='font-size:18.0pt'>&nbsp;</span></p>
+
+<p class=Default><span style='font-size:18.0pt'>&nbsp;</span></p>
+
+<p class=Default align=center style='text-align:center'><b><span
+style='font-size:18.0pt;font-family:"Cambria\,Bold";color:#345A8B'>Module-6:
+Ansible Assignment – 5</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><b><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Tasks To Be Performed:</span></b><span style='font-size:15.0pt;
+font-family:"Georgia",serif;color:#242424;letter-spacing:-.05pt'><br>
+1. Create a new deployment of Ansible cluster of 5 nodes<br>
+2. Label 2 nodes as test and other 2 as prod<br>
+3. Install Java on test nodes<br>
+4. Install MySQL server on prod nodes</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><b><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Tasks To Be Performed:</span></i></b><i><span style='font-size:15.0pt;
+font-family:"Georgia",serif;color:#242424;letter-spacing:-.05pt'><br>
+1. Create a new deployment of Ansible cluster of 5 nodes<br>
+2. Label 2 nodes as test and other 2 as prod<br>
+3. Install Java on test nodes<br>
+4. Install MySQL server on prod nodes</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Launch 2 more instance slave-3, slave-4</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=111 id="Picture 78"
+src="Ansible%20Assignment_files/image038.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Edit authorized_keys</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>And paste id_rsa.pub inside the authorized_keys</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Slave 3</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=53 id="Picture 79"
+src="Ansible%20Assignment_files/image039.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Slave 4</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=601 height=46 id="Picture 80"
+src="Ansible%20Assignment_files/image040.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Create entry in /etc/ansible/hosts file</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=136 id="Picture 81"
+src="Ansible%20Assignment_files/image041.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'> Check weather all hosts connected or not</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>ansible -m ping all</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><span style='font-size:15.0pt;
+line-height:107%;color:#242424;letter-spacing:-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img border=0 width=602
+height=374 id="Picture 82" src="Ansible%20Assignment_files/image042.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><i><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>To create ansible roles:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>now we need to create roles in ansible</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>go inside the directory cd /etc/ansible/roles</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>sudo ansible-galaxy init java</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>sudo ansible-galaxy init mysql</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=601 height=114 id="Picture 83"
+src="Ansible%20Assignment_files/image043.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>create an install.yml file in cd /etc/ansible/roles/java/tasks</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=103 id="Picture 87"
+src="Ansible%20Assignment_files/image044.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>add the install.yml to main.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=87 id="Picture 85"
+src="Ansible%20Assignment_files/image045.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif;color:black'>main.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>create an install.yml file in cd /etc/ansible/roles/mysql/tasks</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=86 id="Picture 91"
+src="Ansible%20Assignment_files/image046.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif;color:black'>install.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>add the install.yml to main.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=89 id="Picture 88"
+src="Ansible%20Assignment_files/image047.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif;color:black'>main.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>write a assign5.yml file to install java in prod and Mysql in test</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=230 id="Picture 89"
+src="Ansible%20Assignment_files/image048.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>Apply assign5.yml </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>ansible-playbook assign5.yml --syntax-check</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:15.0pt;font-family:"Georgia",serif;color:#242424;letter-spacing:
+-.05pt'>ansible-playbook assign5.yml</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal;background:white'><span
+style='color:black'><img border=0 width=601 height=327 id="Picture 92"
+src="Ansible%20Assignment_files/image049.jpg"></span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='color:black'>Veryfie slave-3 java</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='color:black'><img border=0 width=601 height=119 id="Picture 93"
+src="Ansible%20Assignment_files/image050.jpg"></span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='color:black'><a
+href="https://medium.com/tag/aws?source=post_page-----81fc1e4f8bab---------------aws-----------------"><span
+style='font-size:13.5pt;font-family:"Segoe UI",sans-serif;text-decoration:none'><br>
+</span></a>Veryfie slave-4 mysql</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='color:black'><img border=0 width=602 height=95 id="Picture 94"
+src="Ansible%20Assignment_files/image051.jpg"></span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'>&nbsp;</p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='color:black'>We have succsesfull perfrom all assignments tasks:</span></p>
+
+<p class=Default><span style='font-size:18.0pt'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
